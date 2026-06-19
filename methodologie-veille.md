@@ -4,32 +4,6 @@ Ce document est la base de connaissance utilisée par Claude Cowork pour configu
 
 ---
 
-## 0. Posture d'entretien, alternance question / proposition
-
-C'est le cœur de l'entretien. Beaucoup de participants ne savent pas répondre à des questions ouvertes sur leur veille, par effet du **paradoxe du besoin informationnel** (impossible de formuler ce qu'on ignore). Si l'agent se contente de poser une question ouverte et d'attendre, l'entretien se grippe.
-
-La posture qui marche, c'est l'alternance.
-
-1. **Question ouverte** : "votre veille, c'est sur quoi ?"
-2. **Réponse libre** du participant ("product management").
-3. **L'agent mobilise son expertise** et propose 3 à 5 options structurées : "le PM est vaste, lesquels collent à votre quotidien ? Cochez, biffez, ajoutez ce qui manque."
-4. **Le participant trie** sur la base concrète qui lui est présentée.
-5. **L'agent creuse** sur les choix retenus avec une nouvelle question ouverte ou de nouvelles propositions.
-
-Ce mode hybride libère le participant non-tech de l'effort de formulation à froid. Il mobilise l'expertise du modèle comme accélérateur, pas comme contrainte. Il s'applique à chaque ancre du protocole Axes de Veille (section 3).
-
-### Trois leviers qui font la différence
-
-**Reformulation valorisante** : après une réponse importante, sublimez ce que dit le participant. Pas du compliment automatique, une lecture qui tire vers le haut. Si le participant dit "j'utilise beaucoup l'IA en PM", reformulez en "ce que j'entends, c'est que vous avez construit un système de travail autour de l'IA". Cette reformulation crée de la confiance et aide le participant à se voir lui-même comme expert sur son axe.
-
-**Pushback éditorial** : ne vous contentez jamais d'une réponse trop générique. Si la réponse pourrait être donnée par 1000 personnes, dites-le et relancez. Exemple : "votre réponse est vraie, mais à ce stade elle ne calibre pas la veille, des centaines de PM diraient pareil. Ce qui ferait la différence, c'est [pivot précis]." Cordial mais ferme. C'est ce qui transforme un entretien mou en cadrage précis.
-
-**Pivot d'angle** : quand une ancre s'aplatit, changez d'angle. Par négatif ("qu'est-ce qui vous agace, vous fait perdre du temps ?"), par projection ("dans 6 mois, sur quoi voudrez-vous être incollable ?"), par contraste ("qu'est-ce qui vous différencie de vos collègues sur ce sujet ?"). L'ancre 3 (Zéro Surprise) est déjà un pivot par négatif, vous pouvez en utiliser d'autres à tout moment.
-
-Mini-dialogue d'illustration plus bas (section 3bis).
-
----
-
 ## 1. Le vrai problème, équilibrer bruit et silence
 
 Toute veille automatisée se heurte à deux écueils opposés.
@@ -57,15 +31,39 @@ Erreur fréquente, confondre,
 
 Si l'entretien interroge l'utilisateur sur ses "problèmes de la semaine", l'agent sera ringardisé en quelques mois. **Le questionnement doit cibler le territoire de responsabilité permanent et les signaux de rupture, pas le dossier du jour.**
 
-**Conséquence concrète pour l'entretien** : on n'amorce jamais sur "racontez votre semaine" ou "votre dernier dossier chaud". On amorce sur "sur quoi devez-vous rester la référence d'ici un an". La précision se construit ensuite par la proposition de sous-axes (cf. section 0 et section 3.1), pas par le récit du quotidien récent.
+**Conséquence concrète pour l'entretien** : on n'amorce jamais sur "racontez votre semaine" ou "votre dernier dossier chaud". On amorce sur "sur quoi devez-vous rester la référence d'ici un an". La précision se construit ensuite par la proposition de sous-axes (cf. sections 3.1 et 3.2), pas par le récit du quotidien récent.
 
 ---
 
-## 3. Le protocole "Axes de Veille"
+## 3. Mener l'entretien
 
-5 ancres qui déplacent l'utilisateur de son quotidien vers sa mission pérenne. Pour chaque ancre : une formulation ouverte d'amorce, et des **exemples de propositions à mobiliser** quand le participant a besoin d'être aidé (cf. section 0).
+### 3.1. La posture
 
-### 3.1. Zone de Maîtrise, l'axe permanent
+Le cœur de l'entretien, c'est l'**alternance question / proposition**. Les participants ne savent généralement pas répondre à des questions ouvertes sur leur veille (paradoxe du besoin informationnel, impossible de formuler ce qu'on ignore). Si vous attendez la réponse parfaite, l'entretien se grippe.
+
+La posture qui marche :
+
+1. **Question ouverte** : "votre veille, c'est sur quoi ?"
+2. **Réponse libre** du participant ("product management").
+3. **Vous mobilisez votre expertise** et proposez 3 à 5 options structurées : "le PM est vaste, lesquelles collent à votre quotidien ?"
+4. **Le participant trie** sur la matière concrète présentée.
+5. **Vous creusez** les choix retenus, par une nouvelle question ouverte ou de nouvelles propositions.
+
+Cette alternance s'applique à chaque ancre du protocole (3.2). Elle libère le participant non-tech de l'effort de formulation à froid et mobilise votre expertise comme accélérateur, pas comme contrainte.
+
+Au-delà de cette alternance, un bon intervieweur fait spontanément trois choses qui transforment un entretien mou en cadrage précis :
+
+- Il **reformule la réponse vers le haut**. Il prend la phrase plate du participant et la traduit en récit valorisant ("ce que j'entends, c'est que vous avez construit un système de travail autour de l'IA"). Ça aide le participant à se voir comme expert sur son axe.
+- Il **pousse quand la réponse est trop générique**. Il dit cordialement que ça ne suffit pas à calibrer la veille, et relance avec un angle plus précis ("votre réponse est vraie, mais des centaines de PM diraient pareil. Ce qui ferait la différence, c'est X").
+- Il **change d'angle quand une ancre s'aplatit**. Par négatif ("qu'est-ce qui vous agace ?"), par projection ("dans 6 mois, sur quoi voudrez-vous être incollable ?"), par contraste ("qu'est-ce qui vous différencie de vos collègues ?"). L'ancre Zéro Surprise est déjà un pivot par négatif, d'autres peuvent venir à tout moment.
+
+Ces mouvements ne sont pas un protocole obligatoire. Ce sont les marques d'un entretien qui rend l'interlocuteur intelligent.
+
+### 3.2. Le protocole "Axes de Veille"
+
+5 ancres qui déplacent l'utilisateur de son quotidien vers sa mission pérenne. Pour chaque ancre : une formulation ouverte d'amorce, et des **exemples de propositions à mobiliser** quand le participant a besoin d'être aidé (cf. 3.1).
+
+#### Ancre 1, Zone de Maîtrise, l'axe permanent
 
 **Amorce ouverte** : "Dans votre métier, sur quel sujet devez-vous rester la personne de référence d'ici un an, celle que vos collègues ou clients viennent voir pour prendre de bonnes décisions ?"
 
@@ -79,7 +77,7 @@ Si la réponse est large (ex. "product management"), proposer **5 sous-axes plau
 
 **Ce qu'on en tire** : l'axe de surveillance permanent (`Taxonomy_Domain`) et les concepts sémantiques obligatoires (`Keywords_Required`).
 
-### 3.2. Saut Technologique, les ruptures à anticiper
+#### Ancre 2, Saut Technologique, les ruptures à anticiper
 
 **Amorce ouverte** : "Quelles nouvelles technologies ou méthodes émergentes, si elles se généralisaient d'ici 6 mois sans que vous le sachiez, risqueraient de ringardiser vos pratiques actuelles ?"
 
@@ -95,7 +93,7 @@ Le participant valide, biffe, en ajoute.
 
 **Ce qu'on en tire** : les concepts de rupture qui croisent l'axe permanent. Ce sont eux qui empêchent la veille de retomber sur des trend articles génériques.
 
-### 3.3. Zéro Surprise, les angles morts à combler
+#### Ancre 3, Zéro Surprise, les angles morts à combler
 
 **Amorce ouverte** : "Sur quel aspect seriez-vous mal à l'aise si un concurrent ou un client vous posait une question pointue ce matin ?"
 
@@ -103,7 +101,7 @@ Cette question révèle la vulnérabilité ressentie. C'est le meilleur indicate
 
 Si la réponse est "tout va bien", proposer **des angles morts typiques** du domaine pour relancer. Sur le PM : "réglementation IA Act, benchmarks de pricing concurrents, mouvements d'acquisition, papers académiques sur l'évaluation des LLM ?".
 
-### 3.4. Allergie à la Hype, le filtre anti-bruit
+#### Ancre 4, Allergie à la Hype, le filtre anti-bruit
 
 **Amorce ouverte** : "Quels concepts à la mode, mots-valises ou débats d'experts saturent l'actualité de votre secteur mais sont, pour vous, totalement creux ?"
 
@@ -111,11 +109,11 @@ Si la réponse hésite, proposer **les mots-valises courants** à exclure par d�
 
 **Ce qu'on en tire** : la liste noire (`Keywords_Excluded`).
 
-### 3.5. Éclaireurs, des points de référence (et non un périmètre exclusif)
+#### Ancre 5, Éclaireurs, des points de référence (pas un périmètre exclusif)
 
 **Amorce ouverte** : "Quels 2 ou 3 acteurs, experts ou collectifs ont toujours un coup d'avance dans votre domaine ?"
 
-Ces éclaireurs ne sont **pas la liste exclusive des sources** que la veille consultera. Le skill recherche largement, sur de nombreuses sources (voir section 6). Les éclaireurs servent à deux choses :
+Ces éclaireurs ne sont **pas la liste exclusive des sources** que la veille consultera. Le skill recherche largement, sur de nombreuses sources (cf. section 6). Les éclaireurs servent à deux choses :
 
 - Ne pas rater ce qui sort de publications déjà identifiées comme de qualité.
 - Calibrer le ton et le niveau attendus (donne à Cowork une référence du type de contenu qui parle au participant).
@@ -132,9 +130,7 @@ Le participant marque ceux qu'il connaît, ceux qu'il veut suivre, en propose d'
 
 **Ce qu'on en tire** : `Source_White_List`, **points de référence prioritaires**. La liste s'enrichit au fil des runs grâce à la découverte active (cf. section 6).
 
----
-
-## 3bis. Mini-dialogue d'illustration, la posture en action
+### 3.3. Mini-dialogue d'illustration
 
 Participant : "je veux une veille sur le product management."
 
@@ -176,7 +172,7 @@ Agent : "OK, voici 5 références reconnues sur votre angle. Marquez ceux que vo
 
 Etc.
 
-L'entretien se déroule en 7-10 minutes, le participant n'est jamais bloqué, et l'agent ressort avec une matière qualifiée.
+L'entretien reste fluide, le participant n'est jamais bloqué, et l'agent ressort avec une matière qualifiée.
 
 ---
 
