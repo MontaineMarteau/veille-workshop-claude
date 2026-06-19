@@ -22,10 +22,10 @@ Pour ce faire, nous allons utiliser **Claude Cowork** (Antigravity), notre agent
 *Idéal si vous n'avez pas de compte GitHub configuré ou si vous voulez aller le plus vite possible.*
 
 1. Copiez l'URL brute de notre fichier guide :
-   `https://raw.githubusercontent.com/[VOTRE-NOM]/[VOTRE-REPO]/main/veille_workshop_guide.md`
+   `https://raw.githubusercontent.com/MontaineMarteau/veille-workshop-claude/main/veille_workshop_guide.md`
 2. Lancez **Claude Cowork** dans votre terminal de projet.
 3. Collez le prompt minimaliste suivant dans le chat :
-   > **`Suis ce guide : https://raw.githubusercontent.com/[VOTRE-NOM]/[VOTRE-REPO]/main/veille_workshop_guide.md`**
+   > **`Suis ce guide : https://raw.githubusercontent.com/MontaineMarteau/veille-workshop-claude/main/veille_workshop_guide.md`**
 4. Laissez-vous guider par Claude Cowork !
 
 ---
@@ -37,7 +37,7 @@ Pour ce faire, nous allons utiliser **Claude Cowork** (Antigravity), notre agent
 2. Ouvrez le fichier `veille_profile_template.yaml` directement dans votre navigateur sur GitHub, cliquez sur l'icône de crayon pour le modifier, renseignez vos propres mots-clés, puis validez les changements (Commit).
 3. Lancez **Claude Cowork** dans votre terminal de projet.
 4. Collez le prompt suivant :
-   > **`Configure mon skill de veille à partir de mon profil ici : https://github.com/[VOTRE-COMPTE]/[VOTRE-REPO]`**
+   > **`Configure mon skill de veille à partir de mon profil ici : https://github.com/[VOTRE-COMPTE]/veille-workshop-claude`**
 5. L'agent clonera votre dépôt personnel, analysera votre YAML et créera le skill en tâche de fond.
 
 ---
