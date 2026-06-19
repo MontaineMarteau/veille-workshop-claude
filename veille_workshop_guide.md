@@ -11,8 +11,8 @@ Phases dans cet ordre,
 1. **Entretien** (libre dans le contenu, voir ci-dessous).
 2. **Synthèse** des paramètres extraits, présentée pour validation rapide du participant.
 3. **Génération du skill** dans `.agents/skills/domain-veille/SKILL.md`.
-4. **Planification** via `/schedule`.
-5. **Premier rapport de test**, exécuté immédiatement et présenté dans le chat.
+4. **Premier rapport de test**, exécuté immédiatement et présenté dans le chat. Le participant voit concrètement ce que sa veille va produire.
+5. **Planification** via `/schedule`, une fois le rapport montré.
 
 Vous enchaînez 2 → 3 → 4 → 5 sans interrompre. Seule la phase 2 attend une réponse explicite du participant.
 
@@ -65,13 +65,13 @@ Générez `.agents/skills/domain-veille/SKILL.md` au format natif Cowork (entêt
 
 - Encapsuler les variables collectées (axe, mots-clés requis, exclusions, sources, fréquence, priorité).
 - Construire les requêtes booléennes selon la méthodologie (cf. section 6 du fichier methodologie-veille.md).
-- Produire à chaque exécution un rapport au format imposé ci-dessous (phase 5).
+- Produire à chaque exécution un rapport au format imposé ci-dessous (phase 4).
 
-## Phase 4, planification
+## Phase 4, premier rapport de test
 
-Utilisez `/schedule` pour planifier l'exécution récurrente. Proposez l'expression cron en clair (ex. "tous les lundis à 9h"). Ne demandez pas si le participant veut planifier, planifiez et confirmez.
+Exécutez immédiatement le skill que vous venez de générer pour produire un rapport réel, à partir des vraies sources, sur les vraies recherches. Pas de mock, pas de simulation. C'est ce rapport que le participant doit voir avant qu'on planifie.
 
-## Phase 5, format du rapport de veille
+Présentez ensuite une synthèse rapide du rapport dans le chat.
 
 Chaque rapport, à l'atelier ET à chaque exécution récurrente, suit cette structure en Markdown,
 
@@ -94,9 +94,11 @@ Acteurs, publications ou tendances repérés cette semaine sans urgence directe.
 1 à 3 propositions concrètes, comparées au rapport précédent si disponible (ex. "le mot-clé X sature en bruit, je propose de le passer dans Keywords_Excluded", "la source Y n'a rien produit depuis 3 semaines, je propose de la retirer").
 ```
 
-Enregistrez chaque rapport en deux fichiers, `veille_reports/report_latest.md` et `veille_reports/report_AAAA-MM-JJ.md`.
+Enregistrez le rapport en deux fichiers, `veille_reports/report_latest.md` et `veille_reports/report_AAAA-MM-JJ.md`.
 
-À la fin de l'atelier, présentez au participant une synthèse rapide du premier rapport dans le chat.
+## Phase 5, planification
+
+Une fois le rapport montré, planifiez l'exécution récurrente avec `/schedule`. Proposez l'expression cron en clair (ex. "tous les lundis à 9h"). Planifiez sans redemander de validation, confirmez ensuite au participant que sa veille tournera désormais toute seule à ce rythme.
 
 ## Notes opérationnelles
 
