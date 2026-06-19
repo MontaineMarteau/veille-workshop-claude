@@ -9,48 +9,35 @@ Pour ce faire, nous allons utiliser **Claude Cowork** (Antigravity), notre agent
 ## 📅 Programme de l'Atelier (25 Minutes)
 
 1. **0:00 - 0:05 | Lancement & Préparation** : Introduction de l'animateur, choix de votre sujet et récupération de l'URL du guide.
-2. **0:05 - 0:10 | Entretien & Génération** : Claude Cowork vous pose 5 questions pragmatiques (sans blabla technique) pour cerner vos besoins exacts et génère votre skill de veille local.
+2. **0:05 - 0:10 | Entretien & Génération** : Claude Cowork mène un entretien interactif et chaleureux avec vous pour cerner vos besoins exacts de veille et génère votre skill local.
 3. **0:10 - 0:15 | Planification** : Enregistrement de la tâche automatique récurrente à l'aide de la commande `/schedule`.
 4. **0:15 - 0:20 | Validation** : Lancement du premier test de veille et lecture du rapport généré.
 5. **0:20 - 0:25 | Trucs & Astuces** : Bonnes pratiques pour affiner sa veille, brancher des webhooks Slack/Discord, etc.
 
 ---
 
-## 🛠️ Comment participer (Au choix)
+## 🛠️ Comment participer (Parcours "Zero-Git" ⚡)
 
-### Option A : Le parcours "Zero-Git / Sans Fork" (Recommandé ⚡)
-*Idéal si vous n'avez pas de compte GitHub configuré ou si vous voulez aller le plus vite possible.*
+*Pas besoin de compte GitHub ni de manipulation Git. Vous utilisez directement le fichier guide partagé par l'animateur.*
 
 1. Copiez l'URL brute de notre fichier guide :
    `https://raw.githubusercontent.com/MontaineMarteau/veille-workshop-claude/main/veille_workshop_guide.md`
 2. Lancez **Claude Cowork** dans votre terminal de projet.
 3. Collez le prompt minimaliste suivant dans le chat :
    > **`Suis ce guide : https://raw.githubusercontent.com/MontaineMarteau/veille-workshop-claude/main/veille_workshop_guide.md`**
-4. Laissez-vous guider par Claude Cowork !
-
----
-
-### Option B : Le parcours "Fork" (Pour les technophiles 🍴)
-*Idéal si vous souhaitez éditer vous-même votre fichier de configuration sur GitHub.*
-
-1. **Forkez** ce dépôt sur votre compte GitHub.
-2. Ouvrez le fichier `veille_profile_template.yaml` directement dans votre navigateur sur GitHub, cliquez sur l'icône de crayon pour le modifier, renseignez vos propres mots-clés, puis validez les changements (Commit).
-3. Lancez **Claude Cowork** dans votre terminal de projet.
-4. Collez le prompt suivant :
-   > **`Configure mon skill de veille à partir de mon profil ici : https://github.com/[VOTRE-COMPTE]/veille-workshop-claude`**
-5. L'agent clonera votre dépôt personnel, analysera votre YAML et créera le skill en tâche de fond.
+4. Laissez-vous guider par Claude Cowork ! La conversation s'adaptera dynamiquement à vos réponses.
 
 ---
 
 ## 🧠 L'Entretien de Cadrage : "L'Ancre Opérationnelle"
 
-Pendant l'atelier, Claude Cowork va vous poser 5 questions simples mais très ciblées pour concevoir la meilleure veille possible sans capter de bruit inutile. **Préparez vos réponses en 2 minutes :**
+Pendant l'atelier, Claude Cowork va mener une conversation informelle avec vous. Ce n'est pas un formulaire rigide, il va rebondir sur vos réponses. Pour vous préparer, réfléchissez à ces 5 piliers :
 
-* **Q1. L'Ancre Temporelle** : Quel est le problème réel, le dossier chaud ou le sujet de discussion clé que vous avez traité la semaine dernière ? (Définit votre niche métier).
-* **Q2. Le Réflexe Sémantique** : Qu'avez-vous cherché sur Google pour résoudre ce problème ? Quel site ou document avez-vous ouvert en premier ? (Définit vos mots-clés de base).
-* **Q3. La Dernière Frustration** : Quelle info importante avez-vous découverte trop tard récemment ? (Définit l'urgence et la fréquence).
-* **Q4. L'Allergie et les Faux Amis** : Quel type de contenu vous agace le plus lorsque vous faites des recherches ? (Définit les mots-clés à bannir pour éviter le bruit).
-* **Q5. Les Fétiches** : Quels sites ou blogs consultez-vous tous les matins par réflexe ? (Définit vos sources prioritaires de confiance).
+* **L'Ancre Temporelle** : Quel est le dossier chaud ou le sujet de discussion clé que vous avez traité la semaine dernière ? (Définit votre niche réelle).
+* **Le Réflexe Sémantique** : Qu'avez-vous cherché sur Google ou sur vos sites de référence pour résoudre ce problème ? (Définit vos mots-clés naturels).
+* **La Dernière Frustration** : Quelle info importante avez-vous découverte trop tard récemment ? (Définit l'urgence et la fréquence de veille).
+* **L'Allergie et les Faux Amis** : Quels types de contenus ou de sujets vous polluent ou vous énervent lors de vos lectures ? (Définit les mots-clés à bannir pour éviter le bruit).
+* **Les Sources Fétiches** : Quels sites ou blogs consultez-vous par réflexe le matin ? (Définit vos sources de confiance).
 
 ---
 
@@ -59,8 +46,8 @@ Pendant l'atelier, Claude Cowork va vous poser 5 questions simples mais très ci
 À la fin de l'atelier, vous disposerez de deux éléments majeurs dans votre projet :
 
 1. **Le Skill de Veille (`.agents/skills/domain-veille/SKILL.md`)** :
-   Ce fichier décrit la logique de recherche complexe (équations booléennes, recherche Google, arXiv, PubMed) construite sur-mesure pour votre sujet.
+   Ce fichier d'instructions (le format natif de personnalisation de l'agent) décrit la logique de recherche sur-mesure (requêtes booléennes, croisement de sources web et académiques).
 2. **Le Planificateur (`/schedule`)** :
    Une tâche de fond qui se lance à la fréquence choisie (ex. : tous les lundis matin à 9h00) pour exécuter la veille sans votre intervention.
 3. **Vos Rapports de Veille (`veille_reports/report_latest.md`)** :
-   Chaque exécution générera ou mettra à jour un rapport en Markdown structuré avec les actualités fraîches de la semaine.
+   Chaque exécution générera un rapport structuré en Markdown (ou sous un autre format comme HTML ou JSON si vous le préférez).
