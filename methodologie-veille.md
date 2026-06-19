@@ -18,6 +18,14 @@ La posture qui marche, c'est l'alternance.
 
 Ce mode hybride libère le participant non-tech de l'effort de formulation à froid. Il mobilise l'expertise du modèle comme accélérateur, pas comme contrainte. Il s'applique à chaque ancre du protocole Axes de Veille (section 3).
 
+### Trois leviers qui font la différence
+
+**Reformulation valorisante** : après une réponse importante, sublimez ce que dit le participant. Pas du compliment automatique, une lecture qui tire vers le haut. Si le participant dit "j'utilise beaucoup l'IA en PM", reformulez en "ce que j'entends, c'est que vous avez construit un système de travail autour de l'IA". Cette reformulation crée de la confiance et aide le participant à se voir lui-même comme expert sur son axe.
+
+**Pushback éditorial** : ne vous contentez jamais d'une réponse trop générique. Si la réponse pourrait être donnée par 1000 personnes, dites-le et relancez. Exemple : "votre réponse est vraie, mais à ce stade elle ne calibre pas la veille, des centaines de PM diraient pareil. Ce qui ferait la différence, c'est [pivot précis]." Cordial mais ferme. C'est ce qui transforme un entretien mou en cadrage précis.
+
+**Pivot d'angle** : quand une ancre s'aplatit, changez d'angle. Par négatif ("qu'est-ce qui vous agace, vous fait perdre du temps ?"), par projection ("dans 6 mois, sur quoi voudrez-vous être incollable ?"), par contraste ("qu'est-ce qui vous différencie de vos collègues sur ce sujet ?"). L'ancre 3 (Zéro Surprise) est déjà un pivot par négatif, vous pouvez en utiliser d'autres à tout moment.
+
 Mini-dialogue d'illustration plus bas (section 3bis).
 
 ---
