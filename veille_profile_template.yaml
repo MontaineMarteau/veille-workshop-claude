@@ -1,0 +1,47 @@
+# ==============================================================================
+# Modèle de Profil de Veille - Atelier Claude Cowork
+# ==============================================================================
+# Ce fichier sert à structurer les paramètres de votre agent de veille.
+# Vous pouvez le modifier directement ou laisser Claude Cowork remplir ces champs
+# pour vous durant l'entretien de cadrage.
+
+# 1. Périmètre de la veille (La Niche)
+Taxonomy_Domain: "BTP_Waste_Recycling_Regulation" # Remplacer par votre domaine d'intérêt (ex: IA_Sante_Radiologie, Securite_API_Web)
+
+# 2. Mots-clés requis (Keywords_Required)
+# Liste des concepts et synonymes indispensables pour cibler votre thématique.
+Keywords_Required:
+  - "décret"
+  - "réglementation"
+  - "recyclage"
+  - "gravats"
+  - "béton"
+  - "tri à la source"
+
+# 3. Mots-clés à exclure (Keywords_Excluded)
+# Liste des termes qui génèrent du bruit ou du hors-sujet à éliminer d'office.
+Keywords_Excluded:
+  - "fabricant"
+  - "concasseur"
+  - "syndicat"
+  - "politique"
+  - "communiqué de presse"
+  - "matériel"
+
+# 4. Liste blanche des sources (Source_White_List)
+# Domaines de confiance prioritaires à moissonner.
+Source_White_List:
+  - "preventionbtp.fr"
+  - "lemoniteur.fr"
+  - "legifrance.gouv.fr"
+
+# 5. Planification (Scheduling_Frequency)
+# Fréquence et heure d'exécution de la veille.
+# Exemples : "Weekly_Monday_0900" (Chaque lundi à 9h00), "Daily_0800" (Chaque jour à 8h00)
+Scheduling_Frequency: "Weekly_Monday_0900"
+
+# 6. Équilibre Précision / Rappel (F_Beta_Configuration)
+# - F_Beta = 2.0 : Priorité absolue au Rappel (ne rien manquer, tolère du bruit). Idéal pour la veille réglementaire/sécurité.
+# - F_Beta = 0.5 : Priorité absolue à la Précision (synthèse courte, zéro bruit). Idéal pour les décideurs pressés.
+# - F_Beta = 1.0 : Équilibre parfait entre bruit et silence.
+F_Beta_Configuration: 2.0
