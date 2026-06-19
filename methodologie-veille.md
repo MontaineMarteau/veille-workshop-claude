@@ -49,6 +49,8 @@ Erreur fréquente, confondre,
 
 Si l'entretien interroge l'utilisateur sur ses "problèmes de la semaine", l'agent sera ringardisé en quelques mois. **Le questionnement doit cibler le territoire de responsabilité permanent et les signaux de rupture, pas le dossier du jour.**
 
+**Conséquence concrète pour l'entretien** : on n'amorce jamais sur "racontez votre semaine" ou "votre dernier dossier chaud". On amorce sur "sur quoi devez-vous rester la référence d'ici un an". La précision se construit ensuite par la proposition de sous-axes (cf. section 0 et section 3.1), pas par le récit du quotidien récent.
+
 ---
 
 ## 3. Le protocole "Axes de Veille"
