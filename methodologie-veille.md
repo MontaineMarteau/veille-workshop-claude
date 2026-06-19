@@ -101,9 +101,14 @@ Si la réponse hésite, proposer **les mots-valises courants** à exclure par d�
 
 **Ce qu'on en tire** : la liste noire (`Keywords_Excluded`).
 
-### 3.5. Éclaireurs, le sourcing chaud
+### 3.5. Éclaireurs, des points de référence (et non un périmètre exclusif)
 
 **Amorce ouverte** : "Quels 2 ou 3 acteurs, experts ou collectifs ont toujours un coup d'avance dans votre domaine ?"
+
+Ces éclaireurs ne sont **pas la liste exclusive des sources** que la veille consultera. Le skill recherche largement, sur de nombreuses sources (voir section 6). Les éclaireurs servent à deux choses :
+
+- Ne pas rater ce qui sort de publications déjà identifiées comme de qualité.
+- Calibrer le ton et le niveau attendus (donne à Cowork une référence du type de contenu qui parle au participant).
 
 Si le participant ne nomme rien (cas fréquent en non-tech), **proposer 5 éclaireurs probables sur l'axe identifié**, en mixant types (newsletter, blog, podcast, compte LinkedIn) et langues (FR + EN). Sur "PM + IA produit" :
 
@@ -113,9 +118,9 @@ Si le participant ne nomme rien (cas fréquent en non-tech), **proposer 5 éclai
 - Andrew Chen (a16z, growth + IA)
 - Le Ticket (newsletter FR)
 
-Le participant marque ceux qu'il connaît, ceux qu'il veut suivre, en propose d'autres.
+Le participant marque ceux qu'il connaît, ceux qu'il veut suivre, en propose d'autres. Il peut aussi répondre "aucun, à toi de proposer", et le skill partira en recherche large pure, en identifiant ses propres sources de qualité au fil des runs.
 
-**Ce qu'on en tire** : la liste blanche (`Source_White_List`). C'est elle qui empêchera la veille de retomber sur des trend articles SEO.
+**Ce qu'on en tire** : `Source_White_List`, **points de référence prioritaires**. La liste s'enrichit au fil des runs grâce à la découverte active (cf. section 6).
 
 ---
 
@@ -174,7 +179,7 @@ L'entretien se déroule en 7-10 minutes, le participant n'est jamais bloqué, et
 | `Taxonomy_Domain` | L'axe de surveillance permanent. | Ancre 1 |
 | `Keywords_Required` | Termes obligatoires et leurs synonymes. | Ancres 1 et 2 |
 | `Keywords_Excluded` | Termes à bannir pour éliminer le bruit. | Ancre 4 |
-| `Source_White_List` | Sources prioritaires à interroger en premier. | Ancre 5 |
+| `Source_White_List` | Points de référence prioritaires à consulter à chaque run, **pas** un périmètre exclusif (la recherche reste large, cf. section 6). | Ancre 5 |
 | `Scheduling_Frequency` | Fréquence d'exécution (expression cron). | À demander en fin d'entretien |
 | `Priorite_Cadrage` | Curseur entre "ne rien rater" et "ne lire que l'essentiel". | Ancre 3 |
 
@@ -197,14 +202,16 @@ L'ancre 3 (Zéro Surprise) est le meilleur indicateur. Frustration "j'ai raté u
 
 C'est la posture de recherche du skill. Pas un protocole, une description de méthode.
 
-Un veilleur senior ne tape pas une seule requête sur Google. Il fait **3 ou 4 passes successives** sous des angles différents.
+Un veilleur senior pense par sources possibles, pas par sources figées. Il a quelques références de confiance, mais l'essentiel de son travail est d'**explorer largement** et de **croiser** des bases hétérogènes (moteurs généralistes, agrégateurs spécialisés, communautés tech, dépôts académiques, publications d'éclaireurs, comptes sociaux pertinents). Il découvre de nouvelles sources en permanence.
 
-- **Passe 1, large sur l'axe** : recherche ouverte sur le `Taxonomy_Domain` croisé avec un mot de rupture. Permet de capter ce qui circule.
-- **Passe 2, sur les éclaireurs** : visite directe des pages des sources de la `Source_White_List`. Lit les publications de la semaine. C'est là que se trouvent les signaux primaires.
-- **Passe 3, sur les ruptures concrètes** : recherche ciblée sur chaque concept de rupture identifié à l'ancre 2 (ex. "MCP", "workflows agentiques"), pour repérer annonces produit, papers, lancements.
-- **Passe 4, optionnelle** : recherche élargie hors liste blanche pour ne pas rater l'inattendu.
+### À chaque exécution, la recherche large
 
-Puis, **le tri éditorial sévère** :
+- **Recherche large sur l'axe et les ruptures** : plusieurs requêtes successives sous des angles variés (axe seul, axe × rupture 1, axe × rupture 2, etc.), avec des reformulations en plusieurs langues quand c'est pertinent. L'agent mobilise tous les moteurs et bases utiles à son domaine (recherche web généraliste, news, communautés sectorielles, dépôts de prépublications, plateformes de lancements produit, etc.). À lui de juger ce qui est pertinent pour l'axe.
+- **Croisement systématique** : les mêmes concepts revus sous des termes synonymes, anglais et français, pour capter ce qui circule différemment selon les communautés.
+- **Visite des points de référence** : si le participant a nommé des éclaireurs (ou si Cowork en a proposé pendant l'entretien), visiter leurs publications de la semaine pour ne pas rater leurs signaux primaires. Ce sont des points de référence, pas un périmètre.
+- **Découverte active** : à chaque run, repérer 1 ou 2 nouvelles sources rencontrées dans la recherche large qui semblent de qualité, et les proposer dans la section "Suggestions d'ajustement du skill" pour enrichir la `Source_White_List` au fil du temps.
+
+### Puis le tri éditorial sévère
 
 - **Fraîcheur stricte** : sur une fréquence hebdo, ce qui n'est pas daté avec un jour précis ET de moins de 7 jours, dégagé. Sur du mensuel, < 30 jours. Pas de "2026" tout seul, pas de "récemment".
 - **Concret seulement** : on retient les annonces produit, les lancements, les papers, les chiffres, les prises de position originales d'éclaireurs identifiés. On rejette les trend articles SEO génériques ("Top 10 trends 2026", "What's changed in...", "Every X needs to know").
@@ -212,6 +219,10 @@ Puis, **le tri éditorial sévère** :
 - **Mieux 3 vrais signaux que 8 items mous**. On préfère un rapport court mais affûté à un rapport long mais creux.
 
 Si le tri sévère ne laisse rien : on le dit honnêtement dans la synthèse exécutive ("semaine calme sur votre axe, voici 2 signaux faibles à garder à l'œil") plutôt que de gonfler avec du remplissage.
+
+### La règle d'or
+
+La liste blanche est un **filet de sécurité** (ne pas rater ce qui sort des références connues). La vraie valeur de la veille vient de l'**exploration large** + du **tri éditorial sévère** + de la **découverte active** de nouvelles sources qui enrichissent la liste blanche au fil des semaines.
 
 ---
 
