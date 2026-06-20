@@ -108,26 +108,80 @@ Le ton de l'idée clé et le « so what » sont calibrés au contexte du partici
 
 Pas de longs pavés, pas de jargon non expliqué. Équilibrer les trois parties.
 
-### Étape 5 — Générer la page interactive
+### Étape 5 — Format de sortie : la page interactive HTML
 
-Utiliser le gabarit hébergé ici :
+Le rapport est généré au format HTML autonome à partir du gabarit hébergé ici :
 
 ```text
 https://raw.githubusercontent.com/MontaineMarteau/veille-workshop-claude/main/assets/template.html
 ```
 
-Marche à suivre :
+Il est éprouvé et gère déjà : design clair, filtres par partie et par édition, recherche plein-texte, badges de date, infobulles de définition au survol (glossaire).
+
+Ce que la tâche programmée (étape 6) devra faire à chaque exécution :
 
 1. **Récupérer** `assets/template.html` depuis l'URL ci-dessus.
 2. **Renseigner** le titre et le sous-titre.
 3. **Remplir** `ITEMS` (schéma documenté en haut du fichier).
 4. **Compléter** `GLOSSARY` en calibrant la densité au niveau (cf. 1.4).
 5. **Ne PAS toucher** au moteur d'annotation (`annotate`, `SENT`). Le modifier crée des bugs subtils.
-6. **Publier** via `create_artifact` (ou `update_artifact` les semaines suivantes, en ajoutant la nouvelle édition en tête et en gardant l'historique).
+6. **Publier** via `create_artifact` (1ère édition) ou `update_artifact` (éditions suivantes, en ajoutant la nouvelle en tête et en gardant l'historique).
 
-### Étape 6 — Propositions d'amélioration (avant planification)
+### Étape 6 — Programmer la tâche, puis Run now immédiat
 
-Une fois la page générée, regardez-la avec un œil critique. Ce qui se joue ici : transformer une première édition correcte en un objet que le participant a vraiment envie d'ouvrir chaque semaine.
+**Programmer la tâche AVANT d'afficher la première édition.** C'est ce qu'on oublie le plus facilement si on commence par regarder le rapport. Une fois la tâche créée, on déclenche un Run now qui produit la 1ère édition (et pré-autorise les outils web par la même occasion).
+
+#### 6.1 Créer la tâche via `/schedule`
+
+Cron par défaut : `0 17 * * 5` (vendredi 17h). Le prompt de la tâche est **autonome** : il contient tout le cadrage (domaine, angles, sources, rôle/niveau/usage, format de sortie) car il s'exécute sans mémoire de la conversation initiale.
+
+Gabarit du prompt à utiliser :
+
+```text
+Tu es un analyste de veille spécialisé en [DOMAINE]. Chaque [JOUR], produis la VEILLE
+[DOMAINE] de la semaine écoulée et ajoute-la à la page interactive persistante dont
+l'id d'artifact est « [ID_ARTIFACT] » (à la 1ère exécution, créer l'artifact).
+
+CONTEXTE PARTICIPANT : rôle [RÔLE], niveau d'expertise [NIVEAU], usage final [USAGE].
+Calibre la profondeur, le ton, le « so what » et les game changers en conséquence.
+
+OBJECTIF : du contenu dense, sourcé, actionnable et DATÉ. Couvre uniquement les ~7
+derniers jours.
+
+MÉTHODE :
+1. Recherches web réelles. Pour CHAQUE item, vérifie la VRAIE date de publication en
+   ouvrant l'URL. N'accepte un item QUE si sa date tombe dans les 7 derniers jours.
+   N'invente jamais une date, une citation, une stat ou un lien.
+2. Sources de référence connues : [SOURCES INTERNATIONALES] ; [SOURCES LOCALES].
+   Inclure au moins 2 items locaux.
+
+CONTENU — 3 parties équilibrées (4-6 items chacune) :
+- [ANGLE 1, ex. Experts] : prises de parole notables.
+- [ANGLE 2, ex. Secteur] : outils, acteurs, études, pratiques, réglementation.
+- [ANGLE 3, ex. Signaux faibles] : tendances émergentes et angles non-consensuels.
+
+LIVRAISON :
+1. Mets à jour l'artifact « [ID_ARTIFACT] » : ajoute un chip d'édition en tête (date du
+   jour) et insère les nouveaux items EN TÊTE du tableau ITEMS (garde l'historique).
+   Respecte le schéma du gabarit (cf. étape 5). Ne touche pas au moteur d'annotation/glossaire.
+2. (Optionnel) Présente aussi un document récapitulatif daté.
+
+Termine par un résumé de 2-3 phrases des points marquants de la semaine.
+```
+
+#### 6.2 Run now immédiat
+
+Une fois la tâche créée, déclencher un **Run now** sans attendre. Cela permet trois choses :
+
+- Pré-autoriser les outils web (nécessaire pour les exécutions récurrentes futures)
+- Produire la 1ère édition de la page interactive
+- Vérifier en conditions réelles que la tâche tourne correctement
+
+Rappel à donner à l'utilisateur : la tâche ne s'exécute que lorsque l'application est ouverte.
+
+### Étape 7 — Propositions d'amélioration sur la 1ère édition
+
+Une fois la 1ère édition produite par le Run now, regardez-la avec un œil critique. Ce qui se joue ici : transformer une 1ère édition correcte en un objet que le participant a vraiment envie d'ouvrir chaque semaine.
 
 Présentez des propositions **personnalisées à SON cas** (domaine, rôle, niveau, usage final). Mobilisez votre expertise pour identifier ce qui ferait la différence pour CETTE personne, pas des ajustements paramétriques génériques type "tu veux ajuster l'équilibre des 3 parties ?".
 
@@ -157,47 +211,11 @@ Des refontes audacieuses qui sortent la veille de "encore une newsletter hebdo" 
 
 Ces exemples ne sont pas une checklist à dérouler. Ils sont là pour vous donner le **niveau d'audace attendu** et débloquer votre imagination. Pour CE participant, inventez vos propres propositions en tirant parti de tout ce que vous savez de SON cas. Ce que vous proposez à un CPO d'ETT française n'est pas ce que vous proposez à un dev freelance ou à une avocate en droit social belge.
 
-Présentez 2-4 propositions concrètes par registre (pas une liste exhaustive), en mode conversationnel. Le participant pioche, biffe, en propose d'autres. Vous appliquez les changements demandés au template (sans toucher au moteur d'annotation) et regénérez l'artifact.
+Présentez 2-4 propositions concrètes par registre (pas une liste exhaustive), en mode conversationnel.
 
-### Étape 7 — Programmer la veille automatique
+#### Appliquer les améliorations retenues
 
-Une fois la première édition validée et ajustée, proposer de programmer une tâche récurrente (par défaut **vendredi 17h**). Le prompt de la tâche doit être **autonome** : domaine, trois angles, méthode de recherche datée/vérifiée, sources de référence connues, format de sortie, rôle/niveau/usage du participant, et instruction de mettre à jour l'artifact existant.
-
-Gabarit du prompt à utiliser (cron par défaut : `0 17 * * 5`, vendredi 17h) :
-
-```text
-Tu es un analyste de veille spécialisé en [DOMAINE]. Chaque [JOUR], produis la VEILLE
-[DOMAINE] de la semaine écoulée et ajoute-la à la page interactive persistante dont
-l'id d'artifact est « [ID_ARTIFACT] ».
-
-CONTEXTE PARTICIPANT : rôle [RÔLE], niveau d'expertise [NIVEAU], usage final [USAGE].
-Calibre la profondeur, le ton, le « so what » et les game changers en conséquence.
-
-OBJECTIF : du contenu dense, sourcé, actionnable et DATÉ. Couvre uniquement les ~7
-derniers jours.
-
-MÉTHODE :
-1. Recherches web réelles. Pour CHAQUE item, vérifie la VRAIE date de publication en
-   ouvrant l'URL. N'accepte un item QUE si sa date tombe dans les 7 derniers jours.
-   N'invente jamais une date, une citation, une stat ou un lien.
-2. Sources de référence connues : [SOURCES INTERNATIONALES] ; [SOURCES LOCALES].
-   Inclure au moins 2 items locaux.
-
-CONTENU — 3 parties équilibrées (4-6 items chacune) :
-- [ANGLE 1, ex. Experts] : prises de parole notables.
-- [ANGLE 2, ex. Secteur] : outils, acteurs, études, pratiques, réglementation.
-- [ANGLE 3, ex. Signaux faibles] : tendances émergentes et angles non-consensuels.
-
-LIVRAISON :
-1. Mets à jour l'artifact « [ID_ARTIFACT] » : ajoute un chip d'édition en tête (date du
-   jour) et insère les nouveaux items EN TÊTE du tableau ITEMS (garde l'historique).
-   Respecte le schéma du gabarit. Ne touche pas au moteur d'annotation/glossaire.
-2. (Optionnel) Présente aussi un document récapitulatif daté.
-
-Termine par un résumé de 2-3 phrases des points marquants de la semaine.
-```
-
-**Rappels à donner à l'utilisateur** : faire un *« Run now »* une première fois pour pré-autoriser les outils, et préciser que la tâche ne s'exécute que lorsque l'application est ouverte.
+Quand le participant retient des propositions, **modifier le prompt de la tâche programmée** (créée en 6.1) pour intégrer les changements. Puis relancer un **Run now** pour produire une nouvelle édition mise à jour. Itérer si besoin.
 
 ### Étape 8 — Affiner la veille au fil du temps (opt-in, conversationnel)
 
@@ -228,6 +246,6 @@ Mentionner cette possibilité au participant en clôture de l'atelier : *« à t
 
 ## Bonnes pratiques de conversation
 
-Commencer par produire une **première édition « à la main »** pour valider format et sources avec l'utilisateur, AVANT de programmer la tâche. Une fois le format validé et les améliorations apportées (étape 6), la tâche reproduira ce rendu chaque semaine. Les ajustements ultérieurs se font en modifiant le prompt de la tâche (étape 8).
+Programmer la tâche dès que le cadrage est posé (étape 6), pour ne pas l'oublier. Le Run now immédiat produit la 1ère édition qu'on regarde ensemble pour proposer les améliorations (étape 7). Les ajustements suivants se font en modifiant le prompt de la tâche (étape 8).
 
 Pas de questionnaire fermé en série : alternez ouverture, propositions, reformulation, jusqu'à ce que vous ayez assez de matière pour calibrer.
