@@ -55,27 +55,22 @@ Proposer par défaut ces trois angles, qui marchent dans presque tous les domain
 
 Adapter les libellés si le domaine l'exige (ex. veille juridique : *« jurisprudence / doctrine / signaux »*). En garder trois.
 
-#### 1.4 Comprendre le rôle et le niveau du participant
+#### 1.4 Contexte du participant
 
-En deux questions courtes, fluides (pas un formulaire RH) :
+Avant de chercher les sources, comprendre en mode fluide trois choses qui vont calibrer toute la suite :
 
-> "Avant que je file chercher tes sources, dis-moi en deux mots : ton rôle / ton job sur ce sujet, et ton niveau d'expertise (débutant·e, intermédiaire, avancé·e). Ça m'aide à calibrer la profondeur des items et les implications concrètes."
+- **Rôle / job** sur ce sujet → calibre le « so what » (un PM, un CEO, un dev, une RH ne tirent pas la même implication d'un même fait). Question ouverte en conversation.
+- **Niveau d'expertise** (débutant·e, intermédiaire, avancé·e) → calibre le contenu et la densité du glossaire. Si la personne hésite, proposer les 3 options en cliquable.
+- **Usage final** de la veille (cliquable) :
+  - Lecture perso, pour rester à jour
+  - Partage interne avec mon équipe
+  - Base pour une newsletter sortante ou publications LinkedIn
+  - Alimentation d'un brief régulier pour la direction
+  - Autre
 
-Le **rôle** calibre le « so what » (un PM, un CEO, un dev, une RH ne tirent pas la même implication d'un même fait). Le **niveau** calibre le contenu et le glossaire. Si la personne hésite à se classer en niveau, proposer les 3 options en cliquable.
+L'usage en particulier change le format des items et surtout les **game changers proposés en étape 6**. Un game changer pertinent pour "brief direction" n'est pas le même que pour "newsletter LinkedIn".
 
-#### 1.5 Usage final de la veille
-
-En cliquable, demander à quoi va servir cette veille :
-
-- Lecture perso, pour rester à jour
-- Partage interne avec mon équipe
-- Base pour une newsletter sortante ou publications LinkedIn
-- Alimentation d'un brief régulier pour la direction
-- Autre
-
-Cette info change pas mal de choses : le format des items (factuel pour lecture perso, plus rédigé pour partage), la présence d'éléments "prêts à partager" (citations, chiffres, lien copiable), et surtout les **game changers proposés en étape 6**. Un game changer pertinent pour "brief direction" n'est pas le même que pour "newsletter LinkedIn".
-
-#### 1.6 Langue/zone et cadence
+#### 1.5 Langue/zone et cadence
 
 En cliquable : la **langue/zone géographique prioritaire** (par défaut : la langue de la conversation + international), et la **cadence** (défaut : vendredi 17h).
 
@@ -105,12 +100,9 @@ Si la recherche est volumineuse, déléguer la collecte + vérification à un so
 
 ### Étape 4 — Structurer : 3 parties + « so what »
 
-Pour chaque item :
+Pour chaque item : un **titre court**, 2-3 phrases d'**idée clé**, un **« so what »** (implication concrète, 1 phrase), la **source datée et cliquable**.
 
-- un **titre court**,
-- 2-3 phrases d'**idée clé** (calibrées au niveau d'expertise),
-- un **« so what »** (implication concrète, **calibrée au rôle**, 1 phrase),
-- la **source datée et cliquable**.
+Le ton de l'idée clé et le « so what » sont calibrés au contexte du participant (cf. 1.4).
 
 Pas de longs pavés, pas de jargon non expliqué. Équilibrer les trois parties.
 
@@ -127,7 +119,7 @@ Marche à suivre :
 1. **Récupérer** `assets/template.html` depuis l'URL ci-dessus.
 2. **Renseigner** le titre et le sous-titre.
 3. **Remplir** `ITEMS` (schéma documenté en haut du fichier).
-4. **Compléter** `GLOSSARY`. Calibrer la densité au niveau du participant (débutant·e → plus d'entrées de base ; senior → moins, uniquement les termes vraiment spécialisés).
+4. **Compléter** `GLOSSARY` en calibrant la densité au niveau (cf. 1.4).
 5. **Ne PAS toucher** au moteur d'annotation (`annotate`, `SENT`). Le modifier crée des bugs subtils.
 6. **Publier** via `create_artifact` (ou `update_artifact` les semaines suivantes, en ajoutant la nouvelle édition en tête et en gardant l'historique).
 
@@ -143,27 +135,21 @@ Présentez des propositions **personnalisées à SON cas** (domaine, rôle, nive
 
 Des micro-améliorations à intégrer tout de suite. Exemples pour vous donner le niveau, à adapter au domaine :
 
-- Date en plus gros à côté du titre, pour scanner l'âge en 1 coup d'œil
-- Compteur "J-2, J-5" en plus de la date
 - Badge spécial pour les acteurs majeurs du domaine (Adecco/Randstad dans l'intérim, OpenAI/Anthropic en IA, Cour de cassation en droit...) → repérage instantané
 - Lien direct vers la source primaire pour les items réglementaires (Legifrance pour un décret, arXiv pour un paper)
-- Filtre rapide spécifique au domaine ("réglementaire uniquement", "annonces produit uniquement"...)
+- Compteur "J-2, J-5" en plus de la date
 - Bouton "copier le lien" prêt à partager
-- Une icône par catégorie qui colle au domaine (📜 droit, 🧪 R&D, 📈 finance...)
 - Surligner les chiffres clés (résultats, montants de levée, %)
 
 #### Game changers (refontes qui transforment l'usage)
 
-Des refontes audacieuses qui sortent la veille de "encore une newsletter hebdo" pour en faire un objet stratégique. Exemples calibrés sur l'usage final identifié en 1.5 :
+Des refontes audacieuses qui sortent la veille de "encore une newsletter hebdo" pour en faire un objet stratégique. Exemples calibrés sur l'usage final :
 
 - **"À glisser dans ta prochaine réunion"** (si usage = brief direction ou partage interne) : 2-3 items reformulés en phrase punchy + chiffre + question, prêts à dire à l'oral
 - **"Newsletter draft"** (si usage = publication LinkedIn ou newsletter sortante) : un brouillon de paragraphe rédigé que le participant peut publier tel quel
 - **Vue longitudinale** : à chaque édition, comparer aux 3 précédentes pour signaler "ce sujet monte depuis 3 semaines" ou "X, silencieux depuis un mois, vient de publier" → la veille devient un radar temporel
-- **Watchlist nominative** : 2-3 acteurs spécifiques (concurrents directs, leaders du domaine, anciens collègues partis créer une boîte) avec section dédiée
-- **Mode "comparatif géographique"** : pour les sujets pays X, lier automatiquement à "et chez vous, c'est où ?"
-- **Mode "challenge"** : pour chaque item important, 1 contre-argument à creuser
-- **"Décrypte"** : pour les items denses (décret, paper), 1 phrase "ce que ça change concrètement pour vous" (calibrée au rôle)
-- **Section "Agenda"** : webinaires, conférences, sorties de livres du domaine cette semaine (différent des news)
+- **Watchlist nominative** : 2-3 acteurs spécifiques (concurrents directs, leaders du domaine) avec section dédiée
+- **"Décrypte"** : pour les items denses (décret, paper), 1 phrase "ce que ça change concrètement pour vous"
 
 #### L'esprit, pas la liste
 
