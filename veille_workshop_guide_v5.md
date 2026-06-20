@@ -1,10 +1,12 @@
 # Veille hebdomadaire — tous domaines (v5)
 
-## Ce que produit ce skill
+## Ce que produit ce système
 
-Une veille récurrente, fiable et lisible en 10 minutes, sur le domaine choisi par l'utilisateur.
+À la fin de l'atelier, le participant dispose de trois choses qui marchent ensemble :
 
-Le livrable principal est **une page interactive (artifact)** filtrable par partie et par édition, plus une tâche programmée qui la régénère chaque semaine. Optionnellement un document Word/PDF.
+1. **Une page interactive HTML** (l'artifact), filtrable par partie et par édition → le livrable visible, persistant et lisible en 10 minutes.
+2. **Une tâche programmée** créée via `/schedule` → l'automatisation hebdo.
+3. **Un prompt autonome** qui constitue le contenu de la tâche → toute la logique de veille, re-déclenchée à chaque tour. C'est ce prompt qu'on ajuste pour faire évoluer la veille au fil du temps.
 
 La mécanique est toujours la même, seul le domaine change. La valeur tient à une **discipline** : on ne publie que ce qui a été réellement publié dans la fenêtre de temps, avec une date vérifiée à la source. **Jamais de date, de citation, de statistique ou de lien inventés.** Mieux vaut 6 items sûrs que 12 approximatifs.
 
@@ -161,8 +163,6 @@ Présentez 2-4 propositions concrètes par registre (pas une liste exhaustive), 
 
 Une fois la première édition validée et ajustée, proposer de programmer une tâche récurrente (par défaut **vendredi 17h**). Le prompt de la tâche doit être **autonome** : domaine, trois angles, méthode de recherche datée/vérifiée, sources de référence connues, format de sortie, rôle/niveau/usage du participant, et instruction de mettre à jour l'artifact existant.
 
-**Inclure aussi dans le prompt l'instruction de lire le journal de feedback** (cf. étape 8) au démarrage et d'ajuster en conséquence.
-
 Gabarit du prompt à utiliser (cron par défaut : `0 17 * * 5`, vendredi 17h) :
 
 ```text
@@ -172,10 +172,6 @@ l'id d'artifact est « [ID_ARTIFACT] ».
 
 CONTEXTE PARTICIPANT : rôle [RÔLE], niveau d'expertise [NIVEAU], usage final [USAGE].
 Calibre la profondeur, le ton, le « so what » et les game changers en conséquence.
-
-AVANT DE COMMENCER : lis « veille_reports/feedback_log.md » s'il existe. Tiens compte
-des retours des éditions passées (sources notées "rien apporté" à retirer, catégories
-peu lues à alléger, types de signaux à privilégier).
 
 OBJECTIF : du contenu dense, sourcé, actionnable et DATÉ. Couvre uniquement les ~7
 derniers jours.
@@ -196,30 +192,29 @@ LIVRAISON :
 1. Mets à jour l'artifact « [ID_ARTIFACT] » : ajoute un chip d'édition en tête (date du
    jour) et insère les nouveaux items EN TÊTE du tableau ITEMS (garde l'historique).
    Respecte le schéma du gabarit. Ne touche pas au moteur d'annotation/glossaire.
-2. À la fin du rapport, inclus un encart « Retour express » qui invite l'utilisateur
-   à un retour rapide (item le plus utile, source à retirer, etc.).
-3. (Optionnel) Présente aussi un document récapitulatif daté.
+2. (Optionnel) Présente aussi un document récapitulatif daté.
 
 Termine par un résumé de 2-3 phrases des points marquants de la semaine.
 ```
 
 **Rappels à donner à l'utilisateur** : faire un *« Run now »* une première fois pour pré-autoriser les outils, et préciser que la tâche ne s'exécute que lorsque l'application est ouverte.
 
-### Étape 8 — Boucle de feedback (continue, après chaque édition)
+### Étape 8 — Affiner la veille au fil du temps (opt-in, conversationnel)
 
-Chaque rapport produit se termine par un encart **"Retour express"** qui invite à un retour rapide en 30 secondes. Quelques exemples de questions à mobiliser :
+La veille n'est pas figée. À tout moment, le participant peut revenir vers vous pour ajuster.
 
-- "Quel item t'a le plus servi cette semaine ?"
-- "Y a-t-il une partie qui n'a rien apporté ?"
-- "Une source à retirer ou à ajouter ?"
+Cas typiques :
 
-Le participant répond en chat (ou ignore, c'est non bloquant). Quand il répond, **consigner sa réponse dans `veille_reports/feedback_log.md`** avec date, édition concernée, et nature du retour.
+- "Source X ne m'apporte rien, retire-la."
+- "Je veux suivre nominativement Y, ajoute-le."
+- "Tel type d'item revient trop souvent, allège."
+- "Je veux ajouter une rubrique 'à débattre'."
 
-Au run suivant, la tâche programmée lit ce journal (cf. étape 7) et **ajuste explicitement** : sources notées "rien apporté" plusieurs fois → retirées de la liste, type d'item "très utile" → privilégier, catégorie peu lue → alléger.
+Quand le participant dit ça, vous **modifiez le prompt de la tâche programmée existante** pour intégrer le changement (la tâche se trouve dans `/schedule`, le prompt est éditable). Pas de fichier journal annexe, pas de mécanisme dans le HTML : le prompt est central, c'est là qu'on ajuste.
 
-Cumulé sur 4-6 semaines, la veille se calibre vraiment au participant, sans intervention. C'est ce qui distingue une veille "qui fonctionne" d'une veille "à laquelle on tient".
+L'artifact HTML est dédié à la veille, pas au process. Pas d'encart "Retour express" dans le rapport. La boucle est conversationnelle et opt-in.
 
-Mentionner cette boucle au participant en clôture de l'atelier : *« à chaque édition, tu peux me dire 2 mots de retour. Je m'ajuste. »*
+Mentionner cette possibilité au participant en clôture de l'atelier : *« à tout moment, tu reviens vers moi avec un ajustement, je modifie le prompt de la tâche, et la prochaine édition en tient compte. »*
 
 ## Les principes qui font la qualité
 
@@ -229,10 +224,10 @@ Mentionner cette boucle au participant en clôture de l'atelier : *« à chaque 
 - **Des sources de qualité, dont locales** — au moins 2-3 dans la langue/zone de l'utilisateur.
 - **Calibré au rôle, niveau et usage** du participant — c'est ce qui rend la veille personnelle, pas générique.
 - **Format scannable** — titres, dates visibles, définitions au survol, lisible en 10 minutes.
-- **Boucle de feedback continue** — la veille s'ajuste, elle n'est pas figée.
+- **La veille s'ajuste au fil du temps** — le participant revient avec des retours, on modifie le prompt de la tâche.
 
 ## Bonnes pratiques de conversation
 
-Commencer par produire une **première édition « à la main »** pour valider format et sources avec l'utilisateur, AVANT de programmer la tâche. Une fois le format validé et les améliorations apportées (étape 6), la tâche reproduira ce rendu chaque semaine, en s'ajustant via la feedback (étape 8).
+Commencer par produire une **première édition « à la main »** pour valider format et sources avec l'utilisateur, AVANT de programmer la tâche. Une fois le format validé et les améliorations apportées (étape 6), la tâche reproduira ce rendu chaque semaine. Les ajustements ultérieurs se font en modifiant le prompt de la tâche (étape 8).
 
 Pas de questionnaire fermé en série : alternez ouverture, propositions, reformulation, jusqu'à ce que vous ayez assez de matière pour calibrer.
