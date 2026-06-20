@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--
+  GABARIT DE PAGE DE VEILLE — mode d'emploi rapide
+  1) Remplace {{TITRE}} et {{SOUS_TITRE}} dans le <header>.
+  2) Remplis le tableau ITEMS. Schéma d'un item :
+     {
+       wk:    "2026-06-20",            // identifiant d'édition (sert au filtre)
+       part:  "Experts",              // "Experts" | "Secteur" | "Signaux faibles"
+       region:"International",         // "International" | "Francophone" | ""  (utile surtout pour Experts)
+       date:  "14 juin 2026",         // DATE RÉELLE de publication, vérifiée à la source
+       title: "Titre court",
+       body:  "Idée clé en 2-3 phrases.",
+       sowhat:"Implication concrète pour le praticien (1 phrase).",
+       src:   "Nom de la source",
+       url:   "https://…"
+     }
+  3) Complète GLOSSARY avec les termes du domaine (clé = terme, valeur = définition courte).
+  4) NE MODIFIE PAS annotate() ni SENT : ce moteur évite de casser les nombres et les liens.
+  5) Pour ajouter une nouvelle semaine : ajoute un chip dans la rangée "Édition" et insère les
+     nouveaux items EN TÊTE du tableau ITEMS (garde les anciens pour l'historique).
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITRE}}</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #f6f7f9; color: #1c2128;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 15px; line-height: 1.5;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 24px 18px 64px; }
+header h1 { font-size: 24px; margin: 0 0 2px; letter-spacing: .2px; color: #1a3a6b; }
+header .sub { color: #6a7280; font-size: 13.5px; margin-bottom: 18px; }
+.controls { position: sticky; top: 0; background: #f6f7f9; padding: 12px 0; z-index: 5; border-bottom: 1px solid #e3e6ea; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.label { font-size: 12px; color: #8a909a; text-transform: uppercase; letter-spacing: .5px; margin-right: 4px; min-width: 64px; }
+.chip {
+  border: 1px solid #d4d8de; background: #fff; color: #3a4150; border-radius: 999px;
+  padding: 5px 13px; font-size: 13px; cursor: pointer; transition: .12s; user-select: none;
+}
+.chip:hover { border-color: #9fb4d6; }
+.chip.active { background: #1a3a6b; border-color: #1a3a6b; color: #fff; }
+.chip.p-Experts.active { background:#1a3a6b; border-color:#1a3a6b; }
+.chip.p-Secteur.active { background:#0f6b53; border-color:#0f6b53; }
+.chip.p-Signaux.active { background:#9a5a00; border-color:#9a5a00; }
+#search {
+  flex: 1; min-width: 180px; padding: 7px 12px; border: 1px solid #d4d8de;
+  border-radius: 8px; font-size: 14px; background: #fff;
+}
+.count { color: #8a909a; font-size: 12.5px; margin: 12px 2px 2px; }
+.legend { font-size: 12px; color: #8a909a; margin: 0 2px 4px; }
+.group-title { font-size: 13px; font-weight: 700; color:#6a7280; text-transform:uppercase; letter-spacing:.6px; margin: 22px 2px 8px; }
+.card {
+  background: #fff; border: 1px solid #e3e6ea; border-left: 4px solid #1a3a6b;
+  border-radius: 10px; padding: 14px 16px; margin-bottom: 12px;
+}
+.card.Secteur { border-left-color: #0f6b53; }
+.card.Signaux { border-left-color: #9a5a00; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; align-items: center; }
+.badge { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 6px; letter-spacing: .2px; }
+.b-Experts { background: #e7eefb; color: #1a3a6b; }
+.b-Secteur { background: #e2f3ee; color: #0f6b53; }
+.b-Signaux { background: #fbeedd; color: #9a5a00; }
+.b-region { background: #f0f1f3; color: #5a6170; }
+.date { margin-left: auto; font-size: 12px; color: #15233a; font-weight: 600; white-space: nowrap; background:#eef2f8; padding:2px 8px; border-radius:6px; }
+.card h3 { font-size: 15.5px; margin: 0 0 5px; color: #15233a; }
+.card p.body { margin: 0 0 9px; color: #2c333d; }
+.sowhat { background: #f5f7fa; border-radius: 7px; padding: 8px 11px; font-size: 13.5px; color: #344; margin-bottom: 9px; }
+.sowhat b { color: #1a3a6b; }
+.src a { color: #1a5fd4; text-decoration: none; font-size: 13px; }
+.src a:hover { text-decoration: underline; }
+.empty { text-align:center; color:#8a909a; padding: 40px; }
+footer { margin-top: 28px; color:#9aa0aa; font-size:12px; text-align:center; }
+
+/* --- infobulles glossaire --- */
+.term { border-bottom: 1px dotted #9aa6bb; cursor: help; position: relative; outline: none; }
+.term:hover, .term:focus { background: #eef3fb; }
+.term .tip {
+  visibility: hidden; opacity: 0; transition: opacity .12s;
+  position: absolute; left: 0; top: 1.55em; z-index: 30;
+  width: 250px; max-width: 72vw; background: #1c2733; color: #fff;
+  font-size: 12.5px; line-height: 1.45; font-weight: 400; text-align: left;
+  padding: 8px 11px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.22);
+  pointer-events: none; white-space: normal;
+}
+.term .tip::before { content: ""; position: absolute; left: 14px; top: -5px; width: 10px; height: 10px; background: #1c2733; transform: rotate(45deg); }
+.term:hover .tip, .term:focus .tip { visibility: visible; opacity: 1; }
+.term.right .tip { left: auto; right: 0; }
+.term.right .tip::before { left: auto; right: 14px; }
+.legend .term { color: #5a6170; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>{{TITRE}}</h1>
+    <div class="sub">{{SOUS_TITRE}}</div>
+  </header>
+
+  <div class="controls">
+    <div class="row">
+      <span class="label">Édition</span>
+      <span class="chip wk active" data-wk="all">Toutes</span>
+      <span class="chip wk" data-wk="2026-06-20">Édition courante</span>
+    </div>
+    <div class="row">
+      <span class="label">Partie</span>
+      <span class="chip pt active" data-pt="all">Toutes</span>
+      <span class="chip pt p-Experts" data-pt="Experts">Experts</span>
+      <span class="chip pt p-Secteur" data-pt="Secteur">Secteur</span>
+      <span class="chip pt p-Signaux" data-pt="Signaux faibles">Signaux faibles</span>
+    </div>
+    <div class="row">
+      <input id="search" type="text" placeholder="Rechercher (expert, idée, mot-clé)…">
+    </div>
+  </div>
+
+  <div class="count" id="count"></div>
+  <div class="legend">💡 Les termes <span class="term">soulignés en pointillés<span class="tip">Survole un terme (ou tape-le avec le clavier) pour afficher sa définition.</span></span> ont une définition au survol. Chaque date est la vraie date de publication, vérifiée à la source.</div>
+  <div id="list"></div>
+
+  <footer>
+    Veille générée avec le skill « veille-hebdo » · toutes les dates sont des dates de publication réelles, vérifiées à la source.
+  </footer>
+</div>
+
+<script>
+// ====== DONNÉES À REMPLIR ======
+const ITEMS = [
+  // Exemple (à remplacer par les vrais items de la semaine) :
+  // { wk:"2026-06-20", part:"Experts", region:"International", date:"14 juin 2026",
+  //   title:"Titre court", body:"Idée clé en 2-3 phrases.",
+  //   sowhat:"Implication concrète pour le praticien.",
+  //   src:"Nom de la source", url:"https://…" },
+];
+
+// Termes du domaine : clé = terme tel qu'il apparaît dans les textes, valeur = définition courte.
+const GLOSSARY = {
+  // "terme": "définition simple et courte",
+};
+// ====== FIN DES DONNÉES ======
+
+const GLOSSARY_SORTED = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
+const SENT = String.fromCharCode(57344); // U+E000, sentinelle hors texte (ne pas modifier)
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escHtml = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+function annotate(text) {
+  const ph = [];
+  let out = text;
+  GLOSSARY_SORTED.forEach(term => {
+    const re = new RegExp("(?<![\\p{L}\\p{N}])(" + escRe(term) + ")(?![\\p{L}\\p{N}])", "giu");
+    out = out.replace(re, (m) => {
+      const i = ph.length;
+      ph.push('<span class="term" tabindex="0">' + escHtml(m) + '<span class="tip">' + escHtml(GLOSSARY[term]) + '</span></span>');
+      return SENT + i + SENT;
+    });
+  });
+  out = escHtml(out).replace(new RegExp(SENT + "(\\d+)" + SENT, "g"), (_, i) => ph[+i]);
+  return out;
+}
+
+let fWk = "all", fPt = "all", fQ = "";
+const list = document.getElementById("list");
+const countEl = document.getElementById("count");
+const partKey = p => p === "Signaux faibles" ? "Signaux" : p;
+
+function render() {
+  const q = fQ.trim().toLowerCase();
+  let items = ITEMS.filter(it =>
+    (fWk === "all" || it.wk === fWk) &&
+    (fPt === "all" || it.part === fPt) &&
+    (!q || (it.title + " " + it.body + " " + it.sowhat + " " + it.src).toLowerCase().includes(q))
+  );
+  countEl.textContent = items.length + " item" + (items.length > 1 ? "s" : "");
+  list.innerHTML = "";
+  if (!items.length) { list.innerHTML = '<div class="empty">Aucun résultat.</div>'; return; }
+
+  const order = ["Experts", "Secteur", "Signaux faibles"];
+  const groups = {};
+  items.forEach(it => { (groups[it.part] = groups[it.part] || []).push(it); });
+  order.forEach(part => {
+    if (!groups[part]) return;
+    const gt = document.createElement("div");
+    gt.className = "group-title";
+    gt.textContent = part;
+    list.appendChild(gt);
+    groups[part].forEach(it => {
+      const k = partKey(it.part);
+      const card = document.createElement("div");
+      card.className = "card " + k;
+      const region = it.region ? '<span class="badge b-region">' + it.region + '</span>' : '';
+      card.innerHTML =
+        '<div class="badges">' +
+          '<span class="badge b-' + k + '">' + it.part + '</span>' + region +
+          '<span class="date">' + it.date + '</span>' +
+        '</div>' +
+        '<h3>' + annotate(it.title) + '</h3>' +
+        '<p class="body">' + annotate(it.body) + '</p>' +
+        '<div class="sowhat"><b>So what — </b>' + annotate(it.sowhat) + '</div>' +
+        '<div class="src">→ <a href="' + it.url + '" target="_blank" rel="noopener">' + escHtml(it.src) + '</a></div>';
+      list.appendChild(card);
+    });
+  });
+  document.querySelectorAll(".term").forEach(t => {
+    const r = t.getBoundingClientRect();
+    if (r.left > window.innerWidth - 270) t.classList.add("right");
+  });
+}
+
+document.querySelectorAll(".chip.wk").forEach(c => c.addEventListener("click", () => {
+  document.querySelectorAll(".chip.wk").forEach(x => x.classList.remove("active"));
+  c.classList.add("active"); fWk = c.dataset.wk; render();
+}));
+document.querySelectorAll(".chip.pt").forEach(c => c.addEventListener("click", () => {
+  document.querySelectorAll(".chip.pt").forEach(x => x.classList.remove("active"));
+  c.classList.add("active"); fPt = c.dataset.pt; render();
+}));
+document.getElementById("search").addEventListener("input", e => { fQ = e.target.value; render(); });
+
+render();
+</script>
+</body>
+</html>
