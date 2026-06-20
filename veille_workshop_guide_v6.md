@@ -189,21 +189,21 @@ Une fois la 1ère édition produite par le Run now, regardez-la avec un œil cri
 
 Ne piochez pas dans une banque d'idées générique. Interrogez-vous d'abord sur le cas spécifique avec ces questions :
 
-1. **Qu'est-ce qui dans le métier de CE participant ne serait pertinent pour PERSONNE d'autre dans le même atelier ?** (l'angle unique)
-2. **Si CE participant devait expliquer en 30 secondes ce qui le différencie de ses pairs sur ce sujet, qu'est-ce qu'il dirait ?** (l'angle de signature) Comment la veille peut amplifier ça ?
-3. **Quelle action concrète CE participant fait chaque semaine** que la veille pourrait outiller directement (préparer un point, alimenter une décision, nourrir une publication, justifier un arbitrage, briefer un collaborateur...) ? (l'angle opérationnel)
-4. **Quel signal CE participant repère mieux que la moyenne, et qu'il pourrait codifier dans sa veille ?** (l'angle d'expertise tacite)
+- Qu'est-ce qui dans le métier de CE participant ne serait pertinent pour personne d'autre dans le même atelier ?
+- Si CE participant devait expliquer en 30 secondes ce qui le différencie de ses pairs sur ce sujet, qu'est-ce qu'il dirait, et comment la veille peut amplifier ça ?
+- Quelle action concrète CE participant fait chaque semaine que la veille pourrait outiller directement (préparer un point, alimenter une décision, nourrir une publication, justifier un arbitrage, briefer un collaborateur) ?
+- Quel signal CE participant repère mieux que la moyenne, et qu'il pourrait codifier dans sa veille ?
 
 Vos propositions sortent de ces interrogations, pas d'une liste préfabriquée.
 
 #### Niveau d'audace attendu (à dépasser)
 
-Pour vous calibrer, voici deux idées **déjà proposées à d'autres participants**. Pour CE participant, proposez du **plus spécifique et plus personnel** :
+Pour vous calibrer, voici deux idées **déjà proposées à d'autres participants**. Pour CE participant, allez vers du plus spécifique et plus personnel :
 
 - *Quick win type* — un badge spécial pour les acteurs majeurs du domaine (ex. "MAJOR" sur Adecco/Randstad dans une veille intérim) → repérage instantané
 - *Game changer type* — une section "À glisser dans ta prochaine réunion" : 2-3 items reformulés en phrase punchy + chiffre + question, prêts à dire à l'oral
 
-**Si vos propositions ressemblent trop à ces exemples, vous n'avez pas assez creusé le cas.** La règle : vos propositions doivent **surprendre le participant**, pas confirmer ce qu'il aurait pu imaginer tout seul. Elles doivent lui faire dire "ah tiens, je n'y avais pas pensé, mais c'est exactement ça."
+Si vos propositions ressemblent trop à ces exemples, c'est que le cas n'a pas été assez creusé. Cherchez à surprendre le participant, à lui faire dire "ah tiens, je n'y avais pas pensé, mais c'est exactement ça."
 
 #### Présentation au participant
 
@@ -237,7 +237,6 @@ Mentionner cette possibilité au participant en clôture de l'atelier : *« à t
 - **Trois parties équilibrées** — experts + secteur + signaux.
 - **Des sources de qualité, dont locales** — au moins 2-3 dans la langue/zone de l'utilisateur.
 - **Calibré au rôle, niveau et usage** du participant — c'est ce qui rend la veille personnelle, pas générique.
-- **Divergence assumée** — sur un atelier de 20 personnes, l'objectif est 20 veilles vraiment différentes.
 - **Format scannable** — titres, dates visibles, définitions au survol, lisible en 10 minutes.
 - **La veille s'ajuste au fil du temps** — le participant revient avec des retours, on modifie le prompt de la tâche.
 
