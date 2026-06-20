@@ -25,7 +25,7 @@ Trois mouvements complémentaires que fait spontanément un bon intervieweur :
 ### Format des questions, choisir selon la nature
 
 - **Pour des options finies et stables** (langue/zone, cadence, niveau, usage final, priorité) : utiliser l'**interface de choix cliquables** (AskUserQuestion). 1 clic, zéro friction.
-- **Pour des options ouvertes où le participant doit pouvoir amender ou ajouter** (sous-axes, ruptures, allergies, éclaireurs, améliorations) : rester en **conversation textuelle** avec propositions dans le chat.
+- **Pour des options ouvertes où le participant doit pouvoir amender ou ajouter** (sous-axes, ruptures, allergies, éclaireurs, améliorations) : rester en **conversation textuelle** avec propositions **numérotées** dans le chat (1, 2, 3...). Le participant peut répondre "le 2 et le 4" sans avoir à recopier.
 
 **Prenez le temps qu'il faut**, la qualité de l'entretien prime sur la rapidité.
 
@@ -135,23 +135,23 @@ Présentez des propositions **personnalisées à SON cas** (domaine, rôle, nive
 
 #### Quick wins (5 min, on se dit "ah ouais, c'est mieux")
 
-Des micro-améliorations à intégrer tout de suite. Exemples pour vous donner le niveau, à adapter au domaine :
+Des micro-améliorations à intégrer tout de suite. Exemples pour vous donner le niveau, à adapter au domaine. **Présentez-les numérotées** pour que le participant puisse répondre "le 1 et le 4" sans recopier.
 
-- Badge spécial pour les acteurs majeurs du domaine (Adecco/Randstad dans l'intérim, OpenAI/Anthropic en IA, Cour de cassation en droit...) → repérage instantané
-- Lien direct vers la source primaire pour les items réglementaires (Legifrance pour un décret, arXiv pour un paper)
-- Compteur "J-2, J-5" en plus de la date
-- Bouton "copier le lien" prêt à partager
-- Surligner les chiffres clés (résultats, montants de levée, %)
+1. Badge spécial pour les acteurs majeurs du domaine (Adecco/Randstad dans l'intérim, OpenAI/Anthropic en IA, Cour de cassation en droit...) → repérage instantané
+2. Lien direct vers la source primaire pour les items réglementaires (Legifrance pour un décret, arXiv pour un paper)
+3. Compteur "J-2, J-5" en plus de la date
+4. Bouton "copier le lien" prêt à partager
+5. Surligner les chiffres clés (résultats, montants de levée, %)
 
 #### Game changers (refontes qui transforment l'usage)
 
-Des refontes audacieuses qui sortent la veille de "encore une newsletter hebdo" pour en faire un objet stratégique. Exemples calibrés sur l'usage final :
+Des refontes audacieuses qui sortent la veille de "encore une newsletter hebdo" pour en faire un objet stratégique. Exemples calibrés sur l'usage final. **Présentez-les numérotées** pour faciliter le tri.
 
-- **"À glisser dans ta prochaine réunion"** (si usage = brief direction ou partage interne) : 2-3 items reformulés en phrase punchy + chiffre + question, prêts à dire à l'oral
-- **"Newsletter draft"** (si usage = publication LinkedIn ou newsletter sortante) : un brouillon de paragraphe rédigé que le participant peut publier tel quel
-- **Vue longitudinale** : à chaque édition, comparer aux 3 précédentes pour signaler "ce sujet monte depuis 3 semaines" ou "X, silencieux depuis un mois, vient de publier" → la veille devient un radar temporel
-- **Watchlist nominative** : 2-3 acteurs spécifiques (concurrents directs, leaders du domaine) avec section dédiée
-- **"Décrypte"** : pour les items denses (décret, paper), 1 phrase "ce que ça change concrètement pour vous"
+1. **"À glisser dans ta prochaine réunion"** (si usage = brief direction ou partage interne) : 2-3 items reformulés en phrase punchy + chiffre + question, prêts à dire à l'oral
+2. **"Newsletter draft"** (si usage = publication LinkedIn ou newsletter sortante) : un brouillon de paragraphe rédigé que le participant peut publier tel quel
+3. **Vue longitudinale** : à chaque édition, comparer aux 3 précédentes pour signaler "ce sujet monte depuis 3 semaines" ou "X, silencieux depuis un mois, vient de publier" → la veille devient un radar temporel
+4. **Watchlist nominative** : 2-3 acteurs spécifiques (concurrents directs, leaders du domaine) avec section dédiée
+5. **"Décrypte"** : pour les items denses (décret, paper), 1 phrase "ce que ça change concrètement pour vous"
 
 #### L'esprit, pas la liste
 
