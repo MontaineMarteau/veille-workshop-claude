@@ -218,7 +218,7 @@ Avant tout, générer la 1ère édition de l'artifact HTML (comme étape 5), à 
 
 Produire dans le chat un fichier `SKILL.md` autonome, prêt à uploader. Le présenter en bloc de code que le participant copie/colle dans un fichier.
 
-Le skill doit contenir : le frontmatter avec `name` et une `description` qui inclut explicitement des triggers en langage naturel (type "lance ma veille [DOMAINE]", "fais ma veille hebdo"), puis le cadrage personnel du participant, les sources identifiées en étape 2, la méthode (dates vérifiées, 7 derniers jours, 6-9 items, pas d'invention), le format de sortie (gabarit HTML hébergé), et la consigne d'ajouter en tête si un HTML précédent est fourni en entrée.
+Le skill doit refléter **l'état final de l'entretien à cet instant** (cadrage, sources, format, améliorations retenues). Frontmatter avec `name` et `description` incluant des triggers en langage naturel (type "lance ma veille [DOMAINE]").
 
 La forme exacte est laissée au LLM, qui sait faire un skill propre par lui-même.
 
